@@ -1,0 +1,37 @@
+{
+  "name": "timerdz",
+  "version": "0.1.0",
+  "description": "timerdz: cronômetro local com lembretes para transmissões ao vivo (projeto interno)",
+  "main": "src/main/main.js",
+  "scripts": {
+    "test": "node --test test/engine.test.js test/storage.test.js",
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "local.timerdz",
+    "productName": "timerdz",
+    "files": [
+      "src/**/*",
+      "build/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "author": "timerdz",
+  "private": true,
+  "license": "UNLICENSED"
+}

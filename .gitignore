@@ -1,0 +1,9 @@
+# Dependências e saídas de build
+node_modules/
+dist/
+# Dados locais e lixo do sistema
+*.log
+*.tmp
+.env
+.DS_Store
+Thumbs.db

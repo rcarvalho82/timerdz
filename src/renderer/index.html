@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>timerdz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="vRun" class="view" hidden>
+<header>
+  <div><div id="sName" class="mut"></div><div id="stage" class="stage"></div></div>
+  <div class="hr">
+    <span id="status" class="badge"></span>
+    <button id="bLib" class="sm">Biblioteca</button>
+    <button id="bMute" class="sm"></button>
+    <button id="bCfg" class="sm">Configurações</button>
+  </div>
+</header>
+<main>
+  <div id="clock" class="clock" aria-live="off">00:00</div>
+  <div id="overdue" class="overdue" hidden></div>
+  <div class="ctl">
+    <button id="bGo" class="primary"></button>
+    <button id="bRestart">Reiniciar</button>
+    <button id="bNext">Próxima etapa</button>
+  </div>
+  <div class="adj" id="adj">
+    <span class="mut">Ajustar relógio</span>
+    <button data-d="-5">−5</button><button data-d="-1">−1</button>
+    <button data-d="1">+1</button><button data-d="5">+5</button>
+    <input id="custom" type="number" step="1" placeholder="min" aria-label="Minutos personalizados">
+    <button id="bCustom">Aplicar</button>
+  </div>
+  <section class="rem" id="rem">
+    <div id="prev" class="side"></div>
+    <div id="cur" class="cur"></div>
+    <div id="nxt" class="side"></div>
+  </section>
+</main>
+</div>
+<div id="vLib" class="view" hidden></div>
+<div id="vEdit" class="view" hidden></div>
+<dialog id="dlg"><form method="dialog">
+  <h2 id="dTitle"></h2><p id="dMsg"></p>
+  <div class="row"><button id="dNo" value="no" autofocus></button><button id="dOk" value="ok" class="primary sm2"></button></div>
+</form></dialog>
+<dialog id="cfg"><form method="dialog">
+  <h2>Configurações</h2>
+  <label>Volume <input id="vol" type="range" min="0" max="1" step="0.05"></label>
+  <label>Tema <select id="theme"><option value="system">Seguir o Windows</option><option value="light">Claro</option><option value="dark">Escuro</option></select></label>
+  <p class="mut">Atalhos: Espaço iniciar/pausar · M silenciar · ← → ajustar 1 min · Ctrl+Shift+R reiniciar · N próxima etapa</p>
+  <div class="row"><button value="ok" class="primary sm2">Fechar</button></div>
+</form></dialog>
+<script src="../core/engine.js"></script>
+<dialog id="sdlg"><form method="dialog">
+  <h2>Carregar cronograma</h2>
+  <label>Nome da sessão <input id="sName2" type="text"></label>
+  <p class="mut">Carregar não inicia o relógio: você inicia manualmente.</p>
+  <div class="row"><button type="button" id="sCancel">Cancelar</button><button value="ok" class="primary sm2">Carregar</button></div>
+</form></dialog>
+<script src="library.js"></script>
+<script src="editor.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
